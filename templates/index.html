@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<title>Index</title>
+
+<style>
+    .center{
+        display:table;
+        margin: auto;
+    }
+    .image{
+        width: 230px;
+        height: 330px;
+        object-fit: cover;
+        margin-top: 67px;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+    .image:hover{
+        transform: scale(1.1);
+        box-shadow: 9px 8px 40px 0px black;
+      }
+</style>
+<div class="container center">
+    <div class="row">
+{% for i in data %}
+        <div class="col-lg-4">
+<img src="{{i.image.url}}" alt="img" class="image center">  <br>
+<!-- <h5 style="text-align: center;"> {{i.description}} </h5> -->
+<h2 class="center"><b> {{i.title}}</b> </h2>
+<a href="{% url 'readmore' i.id %}" class="center">{{i.descrip}} </a>
+<h5 style="text-align: center;"> By - <b> {{i.created_by}} </b></h5>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

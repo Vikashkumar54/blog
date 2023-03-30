@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .center{
+        display: table;
+        margin: auto;
+    }
+    .image{
+        width: 350px;
+        height: 470px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .titl{
+        padding-left: 490px;
+
+    }
+    .discrip{
+        padding-left: 520px;
+        margin-top: -450px;
+        text-align: justify;
+    }
+</style>
+
+<div class="titl"><h1><b> {{data.title}}</b> </h1></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            
+<img src="{{data.image.url}}" alt="img" class="image center"> 
+
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="discrip"><p> {{data.description}} </p> </div></div>
+<h4 style="text-align: center;">BY:-{{data.created_by}} </h4>
+
+
+{% endblock %}

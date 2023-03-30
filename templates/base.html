@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anime Blogs1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      .body{
+        background-image: url(https://res.cloudinary.com/ded2n28dz/image/upload/v1677988097/download_1_glkumv.jpg);
+      }
+      .bb{
+        border-radius: 10px;
+        border-color: black;
+      }
+        </style>
+  
+  </head>  
+  <body class="body">
+    
+    <nav class="navbar navbar-expand-lg bg-light ">
+        <div class="container">
+          <a class="navbar-brand" href="index"><img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1677759182/gz8ruymttj6voh8t5ux7.png"
+             alt="" width="35px" height="35px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="addblog"><b>AddBlog</b></a>
+              </li>
+              <li>               
+                <a class="nav-link active" aria-current="page" href="contact"><b>Contact Us</b></a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link active" href="edit"><b>Edit</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="profile"><b>Profile</b></a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link active" hr><b>{{user}}</b></a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 <b>Dropdown</b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item " href="sign"><b>Sign Up</b></a></li>
+                  <li><a class="dropdown-item" href="login"><b>login</b></a></li>
+                 
+                </ul>
+              </li>
+             
+            </ul>
+            <form class="d-flex" role="search" method="post" action="/search">
+              {% csrf_token %}
+              <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            </form>
+              <div>
+               
+             <a href="profile">
+                 <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678085009/user_icon_gyiys5.png" 
+                 alt="" width="30px"></div>   
+                  <h3> {{user}}  </h3> </a> &nbsp;  &nbsp;  &nbsp; &nbsp;
+              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+               <a href="{% url 'logout' %}" > <i class="fa fa-sign-out" style="font-size:36px"></i>
+                </a>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    {% block content %}
+
+    <title>Index</title>
+
+<style>
+    .center{
+        display:table;
+        margin: auto;
+    }
+    .image{
+        width: 230px;
+        height: 330px;
+        object-fit: cover;
+        margin-top: 67px;
+        border-radius: 10px;
+        ;
+        
+
+    }
+
+</style>
+<div class="container center">
+    <div class="row">
+{% for i in data %}
+        <div class="col-lg-4">
+
+
+
+
+<img src="{{i.image.url}}" alt="img" class="image center"> 
+<!-- <h5 style="text-align: center;"> {{i.description}} </h5> -->
+<h2 class="center"><b> {{i.title}}</b> </h2>
+
+
+<a href="{% url 'readmore' i.id %}" class="center">{{i.descrip}} </a>
+<h5 style="text-align: center;"> By - <b> {{i.created_by}} </b></h5>
+
+
+
+
+
+
+</div>
+
+{% endfor %}
+</div>
+</div>
+
+    
+    {% endblock %}
+    <style>
+      
+    </style>
+  
+    <div class="container">
+       <br> <br>
+    <hr>
+     <center> <a href="#"> <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678009036/download_3_ow592q.jpg" 
+      alt="" style="width: 50px;"></a>
+      <a href="#"> <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678009242/download_1_soupgl.png" 
+        alt="" style="width: 50px;"></a>
+        <a href="#"> <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678009423/download_2_kcr2dc.png" 
+          alt="" style="width: 40px;"></a>
+        
+      <br>
+      © Anime Blogs by KunaL</center>
+    
+  </div>
+
+  
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>

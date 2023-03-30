@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    .aaa{
+        background-color: antiquewhite;
+    }
+</style>
+
+<div class="container">
+  <div class="aaa">
+    
+  
+{% load crispy_forms_tags %}
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" value="Submit">
+</form>
+</div>
+</div>
+
+
+{% endblock %}

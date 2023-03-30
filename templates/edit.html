@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .center{
+        display: table;
+        
+      
+    }
+    .image{
+        width: 350px;
+        height: 470px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .titl{
+        padding-left: 160px;
+        
+
+    }
+    .discrip{
+        padding-left: 520px;
+        margin-top: -500px;
+        text-align: justify;
+    }
+    .de{
+        border-radius: 4px;
+        border-color: red;
+        background-color: rgb(236, 69, 69);
+        color: white;
+        
+    }
+    .ed{
+        border-radius: 4px;
+        border-color: blue;
+        background-color: blue;
+        color: white;
+    }
+    .down{
+        width: 60px;
+    }
+
+</style>
+{% for i in data %}
+
+<div class="container">
+   <h1><b>  Edit Your Block <hr></b></h1>
+    <div class="row">
+        <div class="col-lg-3">
+        <h2 class="center"><b> {{i.title}}</b> </h2>
+<img src="{{i.image.url}}" alt="img" class="image center"> 
+
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="discrip"><h3> Description -  
+    <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678007699/download_x9rgld.png"
+     alt="" srcset="" class="down">
+     <button class="ed"> <a href="{% url 'update1' i.id %}">Edit</a></button>  <a href="{% url 'dele' i.id %}">
+    <button class="de">Delete</button></a>
+                                    
+</h3> <br> 
+    
+    <p> {{i.description}} </p> 
+<h4>BY -{{i.created_by}} <hr> </h4></div></div>
+
+{% endfor %}
+
+{% endblock %}
