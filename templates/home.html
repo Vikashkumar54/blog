@@ -9,6 +9,10 @@
       .body{
         background-image: url(https://res.cloudinary.com/ded2n28dz/image/upload/v1677988097/download_1_glkumv.jpg);
       }
+      .filter{
+        padding-left: 50px;
+        padding-top: 20px;
+      }
         </style>
   
   </head>  
@@ -17,7 +21,7 @@
       
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container">
-          <a class="navbar-brand" href="login"><img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1677759182/gz8ruymttj6voh8t5ux7.png"
+          <a class="navbar-brand" href="login1"><img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1677759182/gz8ruymttj6voh8t5ux7.png"
              alt="" width="35px" height="35px"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,19 +29,15 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login"><b>Login</b></a>
+                <a class="nav-link active" aria-current="page" href="login1"><b>Login</b></a>
               </li>
-
-              
-             
             </ul>
-       
           </div>
         </div>
       </nav>
    
-
-
+            
+          
 
 
 
@@ -55,7 +55,7 @@
         width: 230px;
         height: 330px;
         object-fit: cover;
-        margin-top: 67px;
+        margin-top: 37px;
         border-radius: 10px;
         object-fit: cover;
         transition: 0.5s;
@@ -69,17 +69,19 @@
 <div class="container center">
     <div class="row">
 {% for i in data %}
+{% if i.Permission is True  %}
+
         <div class="col-lg-4">
 
 
 
 
-<a href="login">  <img src="{{i.image.url}}" alt="img" class="image center"> </a> <br>
+<a href="login1">  <img src="{{i.image.url}}" alt="img" class="image center"> </a> <br>
 <!-- <h5 style="text-align: center;"> {{i.description}} </h5> -->
 <h2 class="center"><b> {{i.title}}</b> </h2>
 
 
- <a href="login"  class="center">{{i.descrip}}  </a>    
+ <a href="login1"  class="center">{{i.descrip}}  </a>    
  
  <!-- <a href="{% url 'readmore' i.id %}"  class="center">{{i.descrip}} </a>  -->
 
@@ -92,7 +94,7 @@
 
 
 </div>
-
+{% endif %}
 {% endfor %}
 </div>
 </div>

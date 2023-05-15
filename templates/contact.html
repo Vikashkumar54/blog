@@ -8,7 +8,7 @@
     }
 </style>
 <div class="container">
-    <h1>Contact Us<h1>
+    <h1 style="color: white;">Contact Us<h1>
         <hr>
         <div class="ccc">
      {% load crispy_forms_tags %} 
@@ -16,7 +16,8 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form|crispy}}
-        <input type="submit" value="Submit">
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+
     </form>
 </div>
     </div> 

@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<title>Index</title>
 <style>
     .center{
         display:table;
@@ -19,18 +18,20 @@
         transform: scale(1.1);
         box-shadow: 9px 8px 40px 0px black;
       }
-      
 </style>
-  
 <div class="container filter">
     <h2>Filter</h2>
     <form  id="ok" action="" method="post">
+        
+
         <select id="query" class="from-control" onchange="select()">
             <option selected></option>
             <a href="/">
+
+
                 <option value="title" >By Title</option>
             </a>
-        </select>
+        </select>            
     </form>
     </div>
 <script>
@@ -41,22 +42,25 @@
        yes.action=a.value
        b ="http://127.0.0.1:8000/"+a.value;
        window.location.href=b
+
+
     }
 </script>
 </div>
 <div class="container center">
     <div class="row">
-{% for i in data %}
+{% for i in dat %}
 {% if i.Permission is True  %}
+
         <div class="col-lg-4">
-<img src="{{i.image.url}}" alt="img" class="image center">  <br>
-<!-- <h5 style="text-align: center;"> {{i.description}} </h5> -->
+<img src="{{i.image.url}}" alt="img" class="image center"><br>
 <h2 class="center"><b> {{i.title}}</b> </h2>
-<a href="{% url 'readmore' i.id %}" class="center" style="color: white;"> Readmore {{i.title}}</a>
+<a href="{% url 'readmore' i.id %}" class="center" style="color: white;">Readmore{{i.title}}</a>
 <h5 style="text-align: center;"> By - <b> {{i.created_by}} </b></h5>
+
 </div>
 {% endif %}
 {% endfor %}
 </div>
 </div>
-{% endblock %}
+{% endblock%}

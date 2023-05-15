@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog_app import views
-
 urlpatterns = [
-    path('vikash/', admin.site.urls),
+    path('login1',views.login,name='login1'),
+    path("com",views.com,name="com"),
+    path('comment/<int:id>',views.comment,name='comment'),
+    path('deletecomment/<int:id>/<int:post_id>',views.deletecomment,name='deletecom'),
+    path('about',views.about,name='about'),
+    path('feed',views.feed,name='feed'),
+    path('admin/', admin.site.urls),
     path('base',views.base,name='base'),
     path('',views.home,name='home'),
     path('index',views.index,name='index'),
@@ -27,24 +32,20 @@ urlpatterns = [
     path('contact',views.contact,name='contact'),
     path('showcontact',views.showcontact,name='showcontact'),
     path('edit',views.edit,name='edit'),
-    
     path('profile',views.profile,name='profile'),
     path('profileimage',views.profileimage,name='profileimage'),
     path('deletei<int:id>',views.deletei,name='deletei'),
     path('updatei<int:id>',views.updatei,name='updatei'),
-    
-    
     path('sign',views.sign,name='sign'),
     path('showsign',views.showsign,name='showsign'),
     path('delete<int:id>',views.delete,name='delete'),
     path('update1<int:id>',views.update1,name='update1'),
     path('update<int:id>',views.update,name='update'),
 
-    path('login',views.login,name='login'),
     path('logout',views.logout,name='logout'),
+    path('change',views.change_p,name='change'),
     path('readmore<int:id>',views.readmore,name='readmore'),
-    
     path('search',views.search,name='search'),
-    
-    
+    path('<str:title>',views.filt,name='filt'),
+
 ]

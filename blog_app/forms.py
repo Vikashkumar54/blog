@@ -1,5 +1,5 @@
 from django import forms
-from .models import add,contactu,proimage
+from .models import add,contactu,proimage,feedback
 
 
 class addform(forms.ModelForm):
@@ -15,5 +15,10 @@ class contactform(forms.ModelForm):
 class proimageform(forms.ModelForm):
     class Meta:
         model=proimage
+        fields='__all__'
+        
+class feedbackform(forms.ModelForm):
+    class Meta:
+        model=feedback
         fields='__all__'
         

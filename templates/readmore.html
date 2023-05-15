@@ -35,7 +35,32 @@
 </div>
 <div class="container-fluid">
 <div class="discrip"><p> {{data.description}} </p> </div></div>
+<br>
 <h4 style="text-align: center;">BY:-{{data.created_by}} </h4>
+
+<div class="comm text-end mt-5">
+
+    <form action="{% url 'com' %}" method="post">
+        {%  csrf_token %}
+        
+        <input type="text" name="u_id"  value="{{user}}" hidden>
+         <input type="text" name="post_id" value="{{data.id}}" hidden>
+        Comment Here : <input type="text" name="comment">
+        <input type="submit" value="Submit">
+    </form>
+    {% if data1 %}
+    {% for i in data1 %}
+    {% if i.adds_id == user.username %}
+    <a href="{% url 'deletecom' i.id data.id %}">Del</a>
+    {% endif %}
+    {{i.comment}} by {{i.adds_id}}
+    <br>
+{% endfor %}
+{% else %}
+<p>NO comment Till Now</p>
+{% endif %}
+
+
 
 
 {% endblock %}

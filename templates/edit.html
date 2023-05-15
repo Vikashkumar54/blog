@@ -42,6 +42,7 @@
 
 </style>
 {% for i in data %}
+{% if i.Permission is True  %}
 
 <div class="container">
    <h1><b>  Edit Your Block <hr></b></h1>
@@ -55,16 +56,16 @@
 </div>
 <div class="container-fluid">
 <div class="discrip"><h3> Description -  
-    <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678007699/download_x9rgld.png"
-     alt="" srcset="" class="down">
-     <button class="ed"> <a href="{% url 'update1' i.id %}">Edit</a></button>  <a href="{% url 'dele' i.id %}">
+    <!-- <img src="https://res.cloudinary.com/ded2n28dz/image/upload/v1678007699/download_x9rgld.png"
+     alt="" srcset="" class="down"> -->
+      <a href="{% url 'update1' i.id %}"><button class="ed" class="btn btn-outline-primary">Edit</button></a>  <a href="{% url 'dele' i.id %}">
     <button class="de">Delete</button></a>
                                     
 </h3> <br> 
     
     <p> {{i.description}} </p> 
 <h4>BY -{{i.created_by}} <hr> </h4></div></div>
-
+{% endif %}
 {% endfor %}
 
 {% endblock %}

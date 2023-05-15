@@ -14,14 +14,21 @@
   
 {% load crispy_forms_tags %}
 
-
+<h1 class="text-center" >Add Blog Here</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form|crispy}}
-    <input type="submit" value="Submit">
+    {{form.media}}
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
 </form>
 </div>
 </div>
 
+<script>
+    let a =document.getElementById("id_created_by")
+    a.value = "{{user}}"
+    let b = document.getElementById("div_id_Permission")
+    b.style.display ="none"
 
+</script>
 {% endblock %}
